@@ -84,7 +84,7 @@ const func4 = (num3, num4) => num3 + num4;
 console.log(func3(12, 13));
 console.log(func4(10, 10));
 
-//分割代入
+//分割代入→オブジェクトから指定のプロパティを抜き出せる
 // const myProfile = {
 //   name: "ゆすけ",
 //   age: 22,
@@ -150,3 +150,58 @@ console.log(arr7);
 
 const arr8 = arr4; //これは参照渡しなので変えた渡す方もも変わってしまう
 console.log(arr8);
+
+const nameArray1 = ["田中", "山田", "ゆすけ"];
+
+// const Arra1 = nameArray1.map((name) => //新しい配列を作っている
+//   return name;
+// });
+// console.log(Arra1);
+// nameArray1.map((name,index) => console.log(`${index + 1}番目は${name}です`));//forループと同じ
+// →このようにmapには２つの使い方がある
+
+// const numArray = [1,2,3,4,5];
+// const NewnumArray = numArray.filter((num)=>{
+// return num % 2 === 1;//returnのあとに条件式を書く
+// });
+// console.log(NewnumArray);
+
+const newNameArray = nameArray1.map((name) => {
+  if (name === "ゆすけ") {
+    return name;
+  } else {
+    return `${name}さん`;
+  }
+});
+console.log(newNameArray);
+
+// const num = 1300;
+// const num = "1300"; //文字列は弾きたい
+// const formattedNum =
+//   typeof num === "number" ? num.toLocaleString() : "数値を入力してください";
+
+// console.log(formattedNum);
+// console.log(num.toLocaleString());
+
+//関数のreturn部分で三項演算子を使える
+const checkSum = (num1, num2) => {
+  return num1 + num2 > 100 ? "100を超えたよ" : "許容範囲内だよ";
+};
+console.log(checkSum(50, 70));
+
+/***
+ * 
+ 論理演算子の本当の意味→変数を設定するのにも使える
+ */
+
+//||は左側がfalseなら右側を返す。左側がtrueならそのまま左をかえす
+const num = null;
+const fee = num || "金額未設定です";
+console.log(fee);
+
+//&& は左側がtrueなら右側を返す
+// const num3 = 100;
+const num3 = null;
+
+const fee2 = num3 && "なにか設定されました";
+console.log(fee2);
